@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: false
+  become: yes
+  tasks:
+  - name: instance info
+    ec2_instance_info:
+       instance_ids: i-052afbxxxx597
+       region: us-west-2
+    register: instance_info
+  - debug:
+      msg: "{{instance_info}}"
